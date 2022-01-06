@@ -21,12 +21,22 @@ public class HomeWork_25_12 {
         Возможные кейсы:
         N=0
         N=1
-        N=5
+        N=87
          */
         System.out.println("Задание 2:");
-        System.out.println("N=0 ==>" + allNumbers(0));
-        System.out.println("N=1 ==>" + allNumbers(1));
-        System.out.println("N=15 ==>" + allNumbers(15));
+        System.out.println("N=0 ==>" + primeNumbers(0));
+        System.out.println("N=1 ==>" + primeNumbers(1));
+        System.out.println("N=15 ==>" + primeNumbers(88));
+        System.out.println("");
+
+        /*
+        На вход в функцию подается целое число и лист листов.
+        Вернуть true, если в листе содержится столько элементов, сколько цифр в числе и каждый элемент листа содержит количество элементов равное цифре соответствующей цифре числа.
+        Сами значения внутри листа роли не играют, важно количество.
+        Например: число 35 и лист: { 0 ⇒ {1, 2, 3}, 1 ⇒ {1, 2, 3, 4, 5}} ⇒ true число 2 и лист: { 0 ⇒ {1, 2, 3}} ⇒ false
+         */
+        System.out.println("Задание 3:");
+        System.out.println();
     }
     static int spaceNumber( String z){
         String freeText = z;
@@ -39,13 +49,18 @@ public class HomeWork_25_12 {
        }
        return n;
     }
-     static String allNumbers(int N){
-        int n=N;
-        String k="";
-        for (int i=0; i<N; i++){
-            n=i+1;
-            k = k+" "+n;
-            }
-         return k;
+    static String primeNumbers(int N) {
+        int i, j;
+        String k = "";
+        boolean isprime;
+        for (i = 1; i <= N; i++) {
+            isprime = true;
+            // проверить, делится ли число без остатка
+            for (j = 2; j <= i / j; j++)
+                // если число делится без остатка, значит, оно не простое
+                if ((i % j) == 0) isprime = false;
+            if (isprime)
+                k = k + " " + i;}
+        return k;
     }
 }
