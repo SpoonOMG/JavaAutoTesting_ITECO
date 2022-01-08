@@ -74,7 +74,6 @@ import java.util.Scanner;
          }
          return n;
      }
-
      static String primeNumbers(int N) {
          int i, j;
          String k = "";
