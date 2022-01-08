@@ -1,10 +1,10 @@
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class HomeWork_25_12 {
-    public static void main(String[] args) {
+ class HomeWork_25_12 {
+     public static void main(String[] args) {
+
         /*
         Задание 1: На вход в функцию подается строка. Посчитать количество пробелов в этой строке
         Возможные кейсы:
@@ -13,12 +13,12 @@ public class HomeWork_25_12 {
         3) Два пробела в тексте подряд
         4) Много пробелов в предложении (больше 10)
          */
-        System.out.println("Задание 1");
-        System.out.println("Произвольное количество пробелов(3) ==> " + spaceNumber("Свободный для ввода текст"));
-        System.out.println("Ноль пробелов (0) ==> " + spaceNumber("Безпробелов"));
-        System.out.println("Более одного пробела между словами (7) ==> " + spaceNumber("Много       пробелов"));
-        System.out.println("Много пробелов в предложении (больше 10) ==>" + spaceNumber("В тексте больше десяти пробелов       "));
-        System.out.println("");
+         System.out.println("Задание 1");
+         System.out.println("Произвольное количество пробелов(3) ==> " + spaceNumber("Свободный для ввода текст"));
+         System.out.println("Ноль пробелов (0) ==> " + spaceNumber("Безпробелов"));
+         System.out.println("Более одного пробела между словами (7) ==> " + spaceNumber("Много       пробелов"));
+         System.out.println("Много пробелов в предложении (больше 10) ==>" + spaceNumber("В тексте больше десяти пробелов       "));
+         System.out.println("");
         /*
         Задание 2: На вход в функцию подается положительное число N. Вывести все простые числа от 1 до N
         Возможные кейсы:
@@ -26,11 +26,11 @@ public class HomeWork_25_12 {
         N=1
         N=87
          */
-        System.out.println("Задание 2:");
-        System.out.println("N=0 ==>" + primeNumbers(0));
-        System.out.println("N=1 ==>" + primeNumbers(1));
-        System.out.println("N=15 ==>" + primeNumbers(88));
-        System.out.println("");
+         System.out.println("Задание 2:");
+         System.out.println("N=0 ==>" + primeNumbers(0));
+         System.out.println("N=1 ==>" + primeNumbers(1));
+         System.out.println("N=15 ==>" + primeNumbers(88));
+         System.out.println("");
 
         /*
         На вход в функцию подается целое число и лист листов.
@@ -38,58 +38,78 @@ public class HomeWork_25_12 {
         Сами значения внутри листа роли не играют, важно количество.
         Например: число 35 и лист: { 0 ⇒ {1, 2, 3}, 1 ⇒ {1, 2, 3, 4, 5}} ⇒ true число 2 и лист: { 0 ⇒ {1, 2, 3}} ⇒ false
          */
-        System.out.println("Задание 3:");
-        System.out.println(numbersAndElements(35));
-        System.out.println(numbersAndElements(43));
-        System.out.println(numbersAndElements(11));
-    }
-    static int spaceNumber( String z){
-        String freeText = z;
-       int n=0;
-       String str = freeText;
-       char[] chArray = str.toCharArray();
-       for(int i = 0; i<chArray.length; i++){
-           if (chArray[i] ==' '){ n++;
-           }
-       }
-       return n;
-    }
-    static String primeNumbers(int N) {
-        int i, j;
-        String k = "";
-        boolean isprime;
-        for (i = 2; i <= N; i++) {
-            isprime = true;
-            // проверить, делится ли число без остатка
-            for (j = 2; j <= i / j; j++)
-                // если число делится без остатка, значит, оно не простое
-                if ((i % j) == 0) isprime = false;
-            if (isprime)
-                k = k + " " + i;}
-        return k;
-    }
-    static boolean numbersAndElements (int n, List<List<Integer>> lists){
-        List<List<Integer>> intsList = new ArrayList<>();
-        Scanner input = new Scanner(System.in);
-        int size = input.nextInt();
-        for (int i=0; i<size; i++ ){
-            int currentSize = input.nextInt();
-            List<Integer>currentList = new ArrayList<>();
-            for (int j = 0; j<currentSize; j++) {
-                currentList.add(0);
-                 }
-            intsList.add(currentList);
-        }
-        input.close();
-        for (int i = 0 ; i<intsList.size(); i++) {
-            for (int j=0; j<intsList.get(i).size(); j++){
-                System.out.print(intsList.get(i).get(j));;
-            }
+         System.out.println("Задание 3:");
+        //Задаем произвольный лист листов
+         List<List<Integer>> listOLists = new ArrayList<>();
+         ArrayList<Integer> singleList = new ArrayList<Integer>();
+         singleList.add(0, 1);
+         singleList.add(1, 2);
+         singleList.add(2, 3);
+         listOLists.add(singleList);
+         ArrayList<Integer> anotherList = new ArrayList<Integer>();
+         anotherList.add(0, 1);
+         anotherList.add(1, 2);
+         anotherList.add(2, 3);
+         anotherList.add(3, 4);
+         anotherList.add(4, 5);
+         anotherList.add(5, 6);
+         listOLists.add(anotherList);
+         //Вызываем функцию
+         if (numbersAndElements(36, listOLists)) {
+             System.out.println("Функция вернула 'True'");
+         }else{
+             System.out.println("Функция вернула 'False'");
+         }
+     }
 
-        }
+     static int spaceNumber(String z) {
+         String freeText = z;
+         int n = 0;
+         String str = freeText;
+         char[] chArray = str.toCharArray();
+         for (int i = 0; i < chArray.length; i++) {
+             if (chArray[i] == ' ') {
+                 n++;
+             }
+         }
+         return n;
+     }
+
+     static String primeNumbers(int N) {
+         int i, j;
+         String k = "";
+         boolean isprime;
+         for (i = 2; i <= N; i++) {
+             isprime = true;
+             // проверить, делится ли число без остатка
+             for (j = 2; j <= i / j; j++)
+                 // если число делится без остатка, значит, оно не простое
+                 if ((i % j) == 0) isprime = false;
+             if (isprime)
+                 k = k + " " + i;
+         }
+         return k;
+     }
+
+     static boolean numbersAndElements(int a, List<List<Integer>> listOLists) {
+         int x = 0;
+         boolean isTrue =false;
+         String t = "" + a;
+         int[] b = new int[t.length()];
+         for (int i = (t.length() - 1); i >= 0; i--) {
+             b[i] = a % 10;
+             a = a / 10;
+         }
+         for (int i = 0; i < t.length(); i++) {
+             if ((t.length() == listOLists.size() && (b[i] == listOLists.get(i).size()))) {
+                 x++;
+             }
+         }
+         if (x == t.length()) {
+             isTrue=true;
+         }
+         return isTrue;
+     }
+ }
 
 
-
-
-    }
-}
