@@ -1,3 +1,6 @@
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class HomeWork_25_12 {
@@ -36,7 +39,9 @@ public class HomeWork_25_12 {
         Например: число 35 и лист: { 0 ⇒ {1, 2, 3}, 1 ⇒ {1, 2, 3, 4, 5}} ⇒ true число 2 и лист: { 0 ⇒ {1, 2, 3}} ⇒ false
          */
         System.out.println("Задание 3:");
-        System.out.println();
+        System.out.println(numbersAndElements(35));
+        System.out.println(numbersAndElements(43));
+        System.out.println(numbersAndElements(11));
     }
     static int spaceNumber( String z){
         String freeText = z;
@@ -53,7 +58,7 @@ public class HomeWork_25_12 {
         int i, j;
         String k = "";
         boolean isprime;
-        for (i = 1; i <= N; i++) {
+        for (i = 2; i <= N; i++) {
             isprime = true;
             // проверить, делится ли число без остатка
             for (j = 2; j <= i / j; j++)
@@ -62,5 +67,29 @@ public class HomeWork_25_12 {
             if (isprime)
                 k = k + " " + i;}
         return k;
+    }
+    static boolean numbersAndElements (int n, List<List<Integer>> lists){
+        List<List<Integer>> intsList = new ArrayList<>();
+        Scanner input = new Scanner(System.in);
+        int size = input.nextInt();
+        for (int i=0; i<size; i++ ){
+            int currentSize = input.nextInt();
+            List<Integer>currentList = new ArrayList<>();
+            for (int j = 0; j<currentSize; j++) {
+                currentList.add(0);
+                 }
+            intsList.add(currentList);
+        }
+        input.close();
+        for (int i = 0 ; i<intsList.size(); i++) {
+            for (int j=0; j<intsList.get(i).size(); j++){
+                System.out.print(intsList.get(i).get(j));;
+            }
+
+        }
+
+
+
+
     }
 }
