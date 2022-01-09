@@ -60,6 +60,22 @@ import java.util.Scanner;
          }else{
              System.out.println("Функция вернула 'False'");
          }
+         System.out.println("");
+
+         /*
+         На вход в функцию подается массив и число N. Вернуть true, если в массиве есть любые 2 числа, сумма которых дает N.
+         В противном случае вернуть false [1, 2, 3], 5 ⇒ true[2, 3, 3], 4 ⇒ false
+          */
+         System.out.println("Задание 4:");
+         //Задаем произвольный массив
+         int[] array = new int[]{5, 28, 7};
+         //Вызываем функцию
+         if (arrayAndNumber(35,array)){
+             System.out.println("Функция вернула 'True'");
+         }else{
+             System.out.println("Функция вернула 'False'");
+         }
+
      }
 
      static int spaceNumber(String z) {
@@ -108,6 +124,22 @@ import java.util.Scanner;
              isTrue=true;
          }
          return isTrue;
+         }
+         static boolean arrayAndNumber(int n, int[]array){
+             int c = 0;
+             int a = 0;
+             boolean isTrue=false;
+             for (int i = 0; i < array.length; i++) {
+                 a = array[i];
+                 for (int j = 0; j < array.length; j++) {
+                     if (j != i) {
+                         c = a + array[j];
+                         if (c == n) {
+                             isTrue=true;
+                         }
+                     }
+                 }
+             }return isTrue;
      }
  }
 
