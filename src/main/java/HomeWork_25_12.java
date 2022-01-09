@@ -1,6 +1,6 @@
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Scanner;
 
  class HomeWork_25_12 {
      public static void main(String[] args) {
@@ -75,7 +75,26 @@ import java.util.Scanner;
          }else{
              System.out.println("Функция вернула 'False'");
          }
+         System.out.println("");
 
+         /*
+         Дана карта студентов (Фамилия ⇒ средний балл). Вывести на экран фамилию студента с наивысшим средним баллом.
+         Если таких несколько, то вывести встречающегося в карте первым
+          */
+         System.out.println("Задание 5");
+         //Задаем произвольную мапу:
+         LinkedHashMap<String, Integer> studentsAndRaiting = new LinkedHashMap<>();
+         studentsAndRaiting.put("Ivanov", 85);
+         studentsAndRaiting.put("Petrov", 199);
+         studentsAndRaiting.put("Sidorov", 199);
+         studentsAndRaiting.put("Ivanova", 201);
+         studentsAndRaiting.put("Ivano", 202);
+         studentsAndRaiting.put("Ivanoqva", 202);
+         studentsAndRaiting.put("Ivanowa", 111);
+         studentsAndRaiting.put("Ivanota", 115);
+         studentsAndRaiting.put("Ivanoya", 115);
+        //Вызываем функцию, возвращающую студента с максимальным средним баллом
+         System.out.println(studentName(studentsAndRaiting));
      }
 
      static int spaceNumber(String z) {
@@ -140,6 +159,23 @@ import java.util.Scanner;
                      }
                  }
              }return isTrue;
+     }
+     static String studentName (LinkedHashMap<String,Integer>studentsAndRaiting){
+         int max = 0;
+         String returnKey ="";
+         String[] student = studentsAndRaiting.keySet().toArray(new String[studentsAndRaiting.size()]);
+         for (int i = 0; i < studentsAndRaiting.size(); i++) {
+             int raiting = studentsAndRaiting.get(student[i]);
+             if (raiting > max) {
+                 max = raiting;
+             }
+         }
+         for (String key : studentsAndRaiting.keySet()) {
+             if (studentsAndRaiting.get(key).equals(max)) {
+                 returnKey= key;
+                 break;
+             }
+         }return returnKey;
      }
  }
 
