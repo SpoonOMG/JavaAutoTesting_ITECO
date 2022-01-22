@@ -12,27 +12,24 @@ public class mobilePhone {
         //конструктор по умолчанию
     Phone SamsungNew =new Phone();
 
-
-
-
-
+        // Выводим на консоль параметры телефонов из конструктора
         System.out.println("Iphone number: "+Iphone.number+", Iphone weight: "+Iphone.weight+
                 ", Iphone model: "+Iphone.model);
         System.out.println("Xiaomi number: "+Xiaomi.number+", Xiaomi weight: "+Xiaomi.weight+
                 ", Xiaomi model: "+Xiaomi.model);
         System.out.println("Samsung number: "+Samsung.number+", Samsung weight: "+Samsung.weight+
                 ", Samsung model: "+Samsung.model);
-
+        //Выводим на консоль, кто звонит (имя)
         Iphone.recieveCall("Иван");
         Xiaomi.recieveCall("Петр");
         Samsung.recieveCall("Елена");
-
+        //Выводим на консоль номер телефона
         System.out.println(Iphone.getNumber());
         System.out.println(Xiaomi.getNumber());
         System.out.println(Samsung.getNumber());
-
+        //Выводим на консоль кто звонит и номер телефона
         Samsung.recieveCall("Евгений", "993-911-75-45");
-
+        //Спамим смски по введенным номерам
        Samsung.sendMessage("915","555","464","123");
 
 
